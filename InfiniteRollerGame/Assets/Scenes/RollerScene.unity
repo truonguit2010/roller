@@ -1261,7 +1261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 826, y: -320}
+  m_AnchoredPosition: {x: 826, y: 14.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681326737
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb769f05b08fe46d4a3e5c4042cbdf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reuseTrigger: {fileID: 0}
+  reuseTrigger: {fileID: 1824851935}
   obstaclePatterns:
   - {fileID: 1669466647596374, guid: 62731ff3cac534fae93bf2d764126d5f, type: 2}
   - {fileID: 1048662594279254, guid: 856437c9f950b4ea29aabe0a9106e623, type: 2}
@@ -1283,6 +1283,7 @@ MonoBehaviour:
   spawnDelay: 0
   character: {fileID: 1731331209}
   gameController: {fileID: 1485476229}
+  camera: {fileID: 519420031}
 --- !u!1 &882545731
 GameObject:
   m_ObjectHideFlags: 0

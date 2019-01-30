@@ -24,9 +24,16 @@ public class ObstacleSpawner : MonoBehaviour {
     private GameController gameController;
     [SerializeField]
     private Camera camera;
+    private Vector3 startPoint;
 
     private List<PoolingObstaclePattern> pools = new List<PoolingObstaclePattern>();
     private List<MoveObstaclePattern> moveObstaclePatterns = new List<MoveObstaclePattern>();
+
+    private void Awake()
+    {
+        this.startPoint = camera.ScreenToWorldPoint(this.transform.position);
+        startPoint = new Vector3(startPoint.x, startPoint.y, 0);
+    }
 
     void GetOrSpawn()
     {
@@ -53,8 +60,7 @@ public class ObstacleSpawner : MonoBehaviour {
 
             poolingObstacle.GetComponent<MoveObstaclePattern>().startMove();
         }
-        Vector3 worldPoint = camera.ScreenToWorldPoint(this.transform.position);
-        poolingObstacle.transform.position = new Vector3(worldPoint.x, worldPoint.y, 0);
+        poolingObstacle.transform.position = startPoint;
 
         PatternScoreTrigger patternScoreTrigger = poolingObstacle.GetComponent<PatternScoreTrigger>();
         patternScoreTrigger.setOrReset(character.transform, gameController);
