@@ -17,28 +17,36 @@ public class Character : MonoBehaviour {
     private float maxSpeed = 1f;
     [SerializeField]
     private float jumpForce = 300f;
+    [SerializeField]
+    private Transform firstGroundCheck;
+    [SerializeField]
+    private Transform secondGroundCheck;
 
     private Animator animator;
     private Rigidbody2D rigidbody2D;
 
+
     [Header("Call when character die.")]
     [SerializeField]
     private OnDieEvent onDieEvent;
+
+    private Transform myTransform;
 
     // Use this for initialization
     void Awake()
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        myTransform = this.transform;
 
         animator.Play("RunAnim");
     }
 
     void FixedUpdate()
     {
-        if (jump)
+        bool grounded = Physics2D.Linecast(firstGroundCheck.position, secondGroundCheck.position);
+        if (jump && grounded)
         {
-            //anim.SetTrigger("Jump");
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }

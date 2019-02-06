@@ -1279,6 +1279,7 @@ MonoBehaviour:
   obstaclePatterns:
   - {fileID: 1669466647596374, guid: 62731ff3cac534fae93bf2d764126d5f, type: 2}
   - {fileID: 1048662594279254, guid: 856437c9f950b4ea29aabe0a9106e623, type: 2}
+  - {fileID: 1739242879384564, guid: 6e8c6a15aa131400b9ac784c8a37edfe, type: 2}
   spawnTime: 5
   spawnDelay: 0
   character: {fileID: 1731331209}
@@ -1459,6 +1460,34 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1000299228}
   m_CullTransparentMesh: 0
+--- !u!1 &1124074768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124074769}
+  m_Layer: 0
+  m_Name: SecondGroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124074769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1124074768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1731331212}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250740036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2323,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1498107481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498107482}
+  m_Layer: 0
+  m_Name: FirstGroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1498107482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1498107481}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.98, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1731331212}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1701531334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,7 +2498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 200
   maxSpeed: 1
-  jumpForce: 300
+  jumpForce: 360
+  firstGroundCheck: {fileID: 1498107482}
+  secondGroundCheck: {fileID: 1124074769}
   onDieEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2540,8 +2599,10 @@ Transform:
   m_GameObject: {fileID: 1731331208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.91, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_Children:
+  - {fileID: 1498107482}
+  - {fileID: 1124074769}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
