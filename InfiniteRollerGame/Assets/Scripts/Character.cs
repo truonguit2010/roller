@@ -44,10 +44,12 @@ public class Character : MonoBehaviour {
 
     void FixedUpdate()
     {
-        bool grounded = Physics2D.Linecast(firstGroundCheck.position, secondGroundCheck.position);
-        if (jump && grounded)
+        if (jump)
         {
-            rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+            bool grounded = Physics2D.Linecast(firstGroundCheck.position, secondGroundCheck.position);
+            if (grounded) {
+                rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+            }
             jump = false;
         }
     }
